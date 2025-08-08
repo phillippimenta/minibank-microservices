@@ -4,4 +4,4 @@ Project developed to showcase my programming skills and enhance my professional 
 
 ## General Architecture Diagram
 
-![General Architecture Diagram](https://github.com/phillippimenta/minibank-microservices/tree/main/docs/Architecture Diagram.svg)
+![General Architecture Diagram](https://github.com/phillippimenta/minibank-microservices/tree/main/docs/ArchitectureDiagram.svg)
