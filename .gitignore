@@ -1,0 +1,11 @@
+# Arquivo de variáveis de ambiente
+.env
+
+# Configuração do IntelliJ IDEA
+.idea/
+
+# Opcional: ignorar arquivos temporários do sistema
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

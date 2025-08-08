@@ -1,0 +1,50 @@
+services:
+  account-service-db:
+    image: postgres:17.5
+    restart: always
+    environment:
+      POSTGRES_USER: ${ACCOUNT_DB_USER}
+      POSTGRES_PASSWORD: ${ACCOUNT_DB_PASSWORD}
+      POSTGRES_DB: ${ACCOUNT_DB_NAME}
+    ports:
+      - "${ACCOUNT_DB_PORT}:5432"
+    volumes:
+      - account_service_data:/var/lib/postgresql/data
+    networks:
+      - minibank-net
+
+  settlement-service-db:
+    image: postgres:17.5
+    restart: always
+    environment:
+      POSTGRES_USER: ${SETTLEMENT_DB_USER}
+      POSTGRES_PASSWORD: ${SETTLEMENT_DB_PASSWORD}
+      POSTGRES_DB: ${SETTLEMENT_DB_NAME}
+    ports:
+      - "${SETTLEMENT_DB_PORT}:5432"
+    volumes:
+      - settlement_service_data:/var/lib/postgresql/data
+    networks:
+      - minibank-net
+
+  transfer-service-db:
+    image: mongo:8.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${TRANSFER_DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${TRANSFER_DB_PASSWORD}
+    ports:
+      - "${TRANSFER_DB_PORT}:27017"
+    volumes:
+      - transfer_service_data:/data/db
+    networks:
+      - minibank-net
+
+volumes:
+  account_service_data:
+  settlement_service_data:
+  transfer_service_data:
+
+networks:
+  minibank-net:
+    driver: bridge
