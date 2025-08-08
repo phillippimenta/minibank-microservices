@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "06764987-9cee-45ea-945e-f0ea494dd5b4",
+		"name": "MiniBank API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1117679",
+		"_collection_link": "https://speeding-shadow-539456.postman.co/workspace/MiniBank~3c3784be-06c2-4ded-9b2a-7fffddff31ec/collection/1117679-06764987-9cee-45ea-945e-f0ea494dd5b4?action=share&source=collection_link&creator=1117679"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Open Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CPF\": \"52096998034\",\r\n    \"holderName\": \"Renata Brito\",\r\n    \"currency\": \"BRL\",\r\n    \"initialBalance\": 1000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "${{ACCOUNT_SERVICE_URL}}/accounts",
+							"host": [
+								"${{ACCOUNT_SERVICE_URL}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account by CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "${{ACCOUNT_SERVICE_URL}}/accounts/:cpf",
+							"host": [
+								"${{ACCOUNT_SERVICE_URL}}"
+							],
+							"path": [
+								"accounts",
+								":cpf"
+							],
+							"variable": [
+								{
+									"key": "cpf",
+									"value": "52096998034"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settlements",
+			"item": [
+				{
+					"name": "Get Settlement Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "${{SETTLEMENT_SERVICE_URL}}/settlements/:transferId",
+							"host": [
+								"${{SETTLEMENT_SERVICE_URL}}"
+							],
+							"path": [
+								"settlements",
+								":transferId"
+							],
+							"variable": [
+								{
+									"key": "transferId",
+									"value": "404c573d-904c-4b80-812a-3153d2b44ff4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Settlements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "${{SETTLEMENT_SERVICE_URL}}/settlements",
+							"host": [
+								"${{SETTLEMENT_SERVICE_URL}}"
+							],
+							"path": [
+								"settlements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retry Failed Settlement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "${{SETTLEMENT_SERVICE_URL}}/settlements/retry/:transferId",
+							"host": [
+								"${{SETTLEMENT_SERVICE_URL}}"
+							],
+							"path": [
+								"settlements",
+								"retry",
+								":transferId"
+							],
+							"variable": [
+								{
+									"key": "transferId",
+									"value": "404c573d-904c-4b80-812a-3153d2b44ff4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transfers",
+			"item": [
+				{
+					"name": "Create New Transfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sourceAccountHolderCpf\": \"52096998034\",\r\n  \"destinationAccountHolderCpf\": \"20160816009\",\r\n  \"amount\": 50.00,\r\n  \"currency\": \"BRL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "${{ACCOUNT_SERVICE_URL}}/transfers",
+							"host": [
+								"${{ACCOUNT_SERVICE_URL}}"
+							],
+							"path": [
+								"transfers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transfer Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "${{ACCOUNT_SERVICE_URL}}/transfers/:transferId",
+							"host": [
+								"${{ACCOUNT_SERVICE_URL}}"
+							],
+							"path": [
+								"transfers",
+								":transferId"
+							],
+							"variable": [
+								{
+									"key": "transferId",
+									"value": "404c573d-904c-4b80-812a-3153d2b44ff4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Transfers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "${{ACCOUNT_SERVICE_URL}}/transfers?accountHolderCpf=:accountHolderCpf&status=:status&startDate=:startDate&endDate=:endDate",
+							"host": [
+								"${{ACCOUNT_SERVICE_URL}}"
+							],
+							"path": [
+								"transfers"
+							],
+							"query": [
+								{
+									"key": "accountHolderCpf",
+									"value": ":accountHolderCpf"
+								},
+								{
+									"key": "status",
+									"value": ":status"
+								},
+								{
+									"key": "startDate",
+									"value": ":startDate"
+								},
+								{
+									"key": "endDate",
+									"value": ":endDate"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
