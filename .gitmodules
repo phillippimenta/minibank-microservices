@@ -1,0 +1,9 @@
+[submodule "microservices/settlement-service"]
+	path = microservices/settlement-service
+	url = git@github.com:phillippimenta/minibank-settlement-service.git
+[submodule "microservices/account-service"]
+	path = microservices/account-service
+	url = git@github.com:phillippimenta/minibank-account-service.git
+[submodule "microservices/transfer-service"]
+	path = microservices/transfer-service
+	url = git@github.com:phillippimenta/minibank-transfer-service.git
