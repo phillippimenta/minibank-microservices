@@ -6,9 +6,9 @@ Project developed to showcase my programming skills and enhance my professional 
 
 ![General Architecture Diagram](https://github.com/phillippimenta/minibank-microservices/blob/main/docs/ArchitectureDiagram.png)
 
-## Subindo a infraestrutura com Docker Compose
+## Starting the infrastructure with Docker Compose
 
-Para iniciar a infraestrutura definida no arquivo docker-compose.yml, é necessário criar um arquivo .env na raiz do projeto com as variáveis de ambiente abaixo:
+To start the infrastructure defined in the docker-compose.yml file, you need to create a .env file in the root of the project with the following environment variables:
 
 ```
 # Account Service DB
@@ -29,7 +29,7 @@ TRANSFER_DB_PASSWORD=transfer_pass
 TRANSFER_DB_PORT=27017
 ```
 
-Após criar o arquivo .env, execute:
+After creating the .env file, run:
 
 ```
 docker-compose up -d
